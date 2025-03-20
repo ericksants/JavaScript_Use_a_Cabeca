@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <script type="text/javascript">
+            var userName;
+            function greetUser() {
+                alert("Olá, eu sou a sua pedra de estimação");
+            }
+
+            function touchRock(){
+                if(userName) {
+                    alert("Eu gosto de atenção,  " + userName + ". Obrigada");
+                } else {
+                    userName = prompt("Qual é o seu nome?", "Digite seu nome aqui.");
+                    if(userName){
+                        alert("Bom conhecer você " + userName + ".");
+                    }
+                }
+
+                document.getElementById("irockImg").src = "/img/irock_smile.png";
+                setTimeout("document.getElementById('irockImg').src = '/img/irock.png';", 5 * 60 * 1000 );
+            }
+
+            function resizeIrock() {
+                document.getElementById("irockImg").style.height = (document.body.clientHeight - 100 ) * 0.9;
+            }
+
+        </script>
+    </head>
+    <body onload="greetUser()" onresize="resizeIrock();">
+        <div style="margin-top: 100px; text-align: center;">
+            <img id="irockImg" src="/img/irock.png" alt="irock" style="cursor: pointer" onclick="touchRock()"/>
+        </div>
+    </body>
+</html>
