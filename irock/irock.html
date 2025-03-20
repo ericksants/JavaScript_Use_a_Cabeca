@@ -19,7 +19,7 @@
                 }
 
                 document.getElementById("irockImg").src = "/img/irock_smile.png";
-                setTimeout("document.getElementById('irockImg').src = '/img/irock.png';", 5 * 60 * 1000 );
+                setTimeout("document.getElementById('irockImg').src = '/irock/img/irock.png';", 5 * 60 * 1000 );
             }
 
             function resizeIrock() {
@@ -30,7 +30,7 @@
     </head>
     <body onload="greetUser()" onresize="resizeIrock();">
         <div style="margin-top: 100px; text-align: center;">
-            <img id="irockImg" src="/img/irock.png" alt="irock" style="cursor: pointer" onclick="touchRock()"/>
+            <img id="irockImg" src="/irock/img/irock.png" alt="irock" style="cursor: pointer" onclick="touchRock()"/>
         </div>
     </body>
 </html>
