@@ -2,10 +2,16 @@
 <html>
     <head>
         <title>Irock</title>
+        <script type="text/javascript" src="/irock/"></script>
         <script type="text/javascript">
             var userName;
             function greetUser() {
-                alert("Olá, eu sou a sua pedra de estimação");
+                if(navigator.cookieEnabled)
+                    userName = readCookie("irock_username");
+                if(userName){
+                    alert("Olá, " + userName + " eu sou a sua pedra de estimação");
+                } else
+                    alert("Olá, eu sou a sua pedra de estimação");
             }
 
             function touchRock(){
@@ -15,10 +21,14 @@
                     userName = prompt("Qual é o seu nome?", "Digite seu nome aqui.");
                     if(userName){
                         alert("Bom conhecer você " + userName + ".");
-                    }
+                        if(navigator.cookieEnabled){
+                            writeCookie("irock_username", userName , 5 * 365);
+                        }else
+                            alert("Não foi possivel guardar seu nome, os Cookies não estão disponiveis");
+                    } 
                 }
 
-                document.getElementById("irockImg").src = "/img/irock_smile.png";
+                document.getElementById("irockImg").src = "/irock/img/irock_smile.png";
                 setTimeout("document.getElementById('irockImg').src = '/irock/img/irock.png';", 5 * 60 * 1000 );
             }
 
